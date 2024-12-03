@@ -26,15 +26,15 @@ class _RegisterUserPreferencesPageState
   List<String> wybraneAlergie = [];
   List<String> wybraneProdukty = [];
 
+  void submitSelectedProducts() {
+    print("Wybrane alergie: $wybraneAlergie");
+    print("Wybrane produkty: $wybraneProdukty");
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
-
-    void submitSelectedProducts() {
-      print("Wybrane alergie: $wybraneAlergie");
-      print("Wybrane produkty: $wybraneProdukty");
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -44,59 +44,61 @@ class _RegisterUserPreferencesPageState
         ),
         backgroundColor: AppColors.accentColor,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: screenHeight * 0.15),
-          const Text(
-            'Masz jakies alergie?',
-            style: TextStyle(fontSize: 20),
-          ),
-          SizedBox(height: screenHeight * 0.05),
-          buildDropdownWithCheckboxes(
-            title: "Zaznacz je tutaj",
-            items: alergie,
-            selectedItems: wybraneAlergie,
-            onSelectionChanged: (selected) {
-              setState(() {
-                wybraneAlergie = selected;
-              });
-            },
-          ),
-          SizedBox(height: screenHeight * 0.1),
-          const Text(
-            'A moze nie lubisz jakiegoś produktu?',
-            style: TextStyle(fontSize: 20),
-          ),
-          SizedBox(height: screenHeight * 0.05),
-          buildDropdownWithCheckboxes(
-            title: "Zaznacz to tutaj",
-            items: czegoNieLube,
-            selectedItems: wybraneProdukty,
-            onSelectionChanged: (selected) {
-              setState(() {
-                wybraneProdukty = selected;
-              });
-            },
-          ),
-          SizedBox(height: screenHeight * 0.1),
-          Container(
-            margin: const EdgeInsets.only(top: 30, left: 30, right: 30),
-            width: screenWidth * 0.8,
-            height: screenHeight * 0.06,
-            child: ElevatedButton(
-              //onPressed: () => register(context),
-              onPressed: () => submitSelectedProducts(),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.strongAccentColor,
-              ),
-              child: const Text(
-                'Zarejestruj się',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+      body: SingleChildScrollView(
+        // To allow scrolling of the entire screen content
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: screenHeight * 0.15),
+            const Text(
+              'Masz jakies alergie?',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: screenHeight * 0.05),
+            buildDropdownWithCheckboxes(
+              title: "Zaznacz je tutaj",
+              items: alergie,
+              selectedItems: wybraneAlergie,
+              onSelectionChanged: (selected) {
+                setState(() {
+                  wybraneAlergie = selected;
+                });
+              },
+            ),
+            SizedBox(height: screenHeight * 0.1),
+            const Text(
+              'A moze nie lubisz jakiegoś produktu?',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: screenHeight * 0.05),
+            buildDropdownWithCheckboxes(
+              title: "Zaznacz to tutaj",
+              items: czegoNieLube,
+              selectedItems: wybraneProdukty,
+              onSelectionChanged: (selected) {
+                setState(() {
+                  wybraneProdukty = selected;
+                });
+              },
+            ),
+            SizedBox(height: screenHeight * 0.1),
+            Container(
+              margin: const EdgeInsets.only(top: 30, left: 30, right: 30),
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.06,
+              child: ElevatedButton(
+                onPressed: submitSelectedProducts,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.strongAccentColor,
+                ),
+                child: const Text(
+                  'Zarejestruj się',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -111,16 +113,17 @@ class _RegisterUserPreferencesPageState
       title: Text(title),
       children: [
         Container(
-          height: 200, 
+          height: 200, // Defining the height for the scrollable list
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black26,
-              width: 1, 
+              width: 1,
             ),
-            borderRadius: BorderRadius.circular(5), 
+            borderRadius: BorderRadius.circular(5),
           ),
           child: SingleChildScrollView(
+            // Enables scrolling inside the list
             child: Column(
               children: items.map((item) {
                 return CheckboxListTile(
@@ -145,5 +148,3 @@ class _RegisterUserPreferencesPageState
     );
   }
 }
-
-register(BuildContext context) {}
