@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "61704509033",
+    "project_id": "sailaway-e00f8",
+    "storage_bucket": "sailaway-e00f8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61704509033:android:0470614831b5dd622034f8",
+        "android_client_info": {
+          "package_name": "com.example.sail_away"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OatgsJYu-3KIoyJoYlCCZE__-QTz43I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
