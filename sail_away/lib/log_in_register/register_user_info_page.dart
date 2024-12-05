@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sail_away/common/colors.dart';
+import 'package:sail_away/cubit/log_in_cubit.dart';
 
 class RegisterUserInfoPage extends StatefulWidget {
   const RegisterUserInfoPage({super.key});
@@ -89,7 +91,7 @@ class _RegisterUserInfoPageState extends State<RegisterUserInfoPage> {
                 });
               },
               decoration: InputDecoration(
-                hintText: 'Tomek Kolanko',
+                hintText: 'Tomek',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
@@ -243,6 +245,12 @@ class _RegisterUserInfoPageState extends State<RegisterUserInfoPage> {
   }
 }
 
-moveToSecondPartOfRegistration(BuildContext context, name, email, password) {}
+moveToSecondPartOfRegistration(BuildContext context, name, email, password) {
+  final logInCubit = BlocProvider.of<LogInCubit>(context);
+  logInCubit.registerUser(email, password);
+}
 
-moveToLogIn(BuildContext context) {}
+moveToLogIn(BuildContext context) {
+  final logInCubit = BlocProvider.of<LogInCubit>(context);
+  logInCubit.moveToLogIn();
+}

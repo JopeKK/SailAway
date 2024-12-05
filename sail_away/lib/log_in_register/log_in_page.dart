@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sail_away/common/colors.dart';
+import 'package:sail_away/cubit/log_in_cubit.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -179,7 +181,8 @@ class _LogInPageState extends State<LogInPage> {
                   width: screenWidth * 0.8,
                   height: screenHeight * 0.06,
                   child: ElevatedButton(
-                    onPressed: () => logIn(context, email, password),
+                    onPressed: () =>
+                        logIn(context, email.trim(), password.trim()),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.strongAccentColor,
                     ),
@@ -226,6 +229,12 @@ recoveryPassoword() {
   //co pop up podaj mail itd
 }
 
-logIn(BuildContext context, String email, String password) {}
+logIn(BuildContext context, String email, String password) {
+  final logInCubit = BlocProvider.of<LogInCubit>(context);
+  logInCubit.signInWithEmailAndPassword(email, password);
+}
 
-moveToRegistration(BuildContext context) {}
+moveToRegistration(BuildContext context) {
+  final logInCubit = BlocProvider.of<LogInCubit>(context);
+  logInCubit.moveToRegistration();
+}

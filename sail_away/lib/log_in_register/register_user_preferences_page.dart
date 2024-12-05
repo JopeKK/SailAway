@@ -22,7 +22,11 @@ class _RegisterUserPreferencesPageState
     "Alergia 8",
     "Alergia 9",
   ];
-  List<String> czegoNieLube = ["Product 4", "Product 5", "Product 6"];
+  List<String> czegoNieLube = [
+    "Product 4",
+    "Product 5",
+    "Product 6",
+  ];
   List<String> wybraneAlergie = [];
   List<String> wybraneProdukty = [];
 
@@ -45,7 +49,6 @@ class _RegisterUserPreferencesPageState
         backgroundColor: AppColors.accentColor,
       ),
       body: SingleChildScrollView(
-        // To allow scrolling of the entire screen content
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -64,6 +67,7 @@ class _RegisterUserPreferencesPageState
                   wybraneAlergie = selected;
                 });
               },
+              widgetHeight: screenHeight * 0.4,
             ),
             SizedBox(height: screenHeight * 0.1),
             const Text(
@@ -80,6 +84,7 @@ class _RegisterUserPreferencesPageState
                   wybraneProdukty = selected;
                 });
               },
+              widgetHeight: screenHeight * 0.4,
             ),
             SizedBox(height: screenHeight * 0.1),
             Container(
@@ -108,12 +113,13 @@ class _RegisterUserPreferencesPageState
     required List<String> items,
     required List<String> selectedItems,
     required Function(List<String>) onSelectionChanged,
+    required double widgetHeight,
   }) {
     return ExpansionTile(
       title: Text(title),
       children: [
         Container(
-          height: 200, // Defining the height for the scrollable list
+          height: widgetHeight,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             border: Border.all(
@@ -123,7 +129,6 @@ class _RegisterUserPreferencesPageState
             borderRadius: BorderRadius.circular(5),
           ),
           child: SingleChildScrollView(
-            // Enables scrolling inside the list
             child: Column(
               children: items.map((item) {
                 return CheckboxListTile(

@@ -1,5 +1,5 @@
-connectorId: default
+connectorId: sail_away_api
 generate:
   dartSdk:
-    outputDir: ../../dataconnect-generated/dart/default_connector
-    package: default_connector
+    outputDir: ../../lib/generated
+    package: sail_away_api

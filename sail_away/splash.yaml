@@ -4,3 +4,4 @@ flutter_native_splash:
   web: false 
 
   color: "#40E6E0"
+  image: assets/splash/splashPhoto.jpeg
