@@ -1,0 +1,776 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Allergy` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  allergy_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Allergy_Data!
+  ): Allergy_KeyOutput! @fdc_generated(from: "Allergy", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Product` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  product_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Product_Data!
+  ): Product_KeyOutput! @fdc_generated(from: "Product", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Tip` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  tip_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Tip_Data!
+  ): Tip_KeyOutput! @fdc_generated(from: "Tip", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Transport` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  transport_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Transport_Data!
+  ): Transport_KeyOutput! @fdc_generated(from: "Transport", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Trip` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  trip_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Trip_Data!
+  ): Trip_KeyOutput! @fdc_generated(from: "Trip", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `User` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `UserPrefernces` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userPreference_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: UserPrefernces_Data!
+  ): UserPrefernces_KeyOutput! @fdc_generated(from: "UserPrefernces", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Allergy` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  allergy_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Allergy_Data!]!
+  ): [Allergy_KeyOutput!]! @fdc_generated(from: "Allergy", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Product` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  product_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Product_Data!]!
+  ): [Product_KeyOutput!]! @fdc_generated(from: "Product", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Tip` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  tip_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Tip_Data!]!
+  ): [Tip_KeyOutput!]! @fdc_generated(from: "Tip", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Transport` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  transport_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Transport_Data!]!
+  ): [Transport_KeyOutput!]! @fdc_generated(from: "Transport", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Trip` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  trip_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Trip_Data!]!
+  ): [Trip_KeyOutput!]! @fdc_generated(from: "Trip", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `User` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `UserPrefernces` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userPreference_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [UserPrefernces_Data!]!
+  ): [UserPrefernces_KeyOutput!]! @fdc_generated(from: "UserPrefernces", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Allergy` into the table, based on the primary key. Returns the key of the newly inserted `Allergy`.
+  """
+  allergy_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Allergy_Data!
+  ): Allergy_KeyOutput! @fdc_generated(from: "Allergy", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Product` into the table, based on the primary key. Returns the key of the newly inserted `Product`.
+  """
+  product_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Product_Data!
+  ): Product_KeyOutput! @fdc_generated(from: "Product", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Tip` into the table, based on the primary key. Returns the key of the newly inserted `Tip`.
+  """
+  tip_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Tip_Data!
+  ): Tip_KeyOutput! @fdc_generated(from: "Tip", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Transport` into the table, based on the primary key. Returns the key of the newly inserted `Transport`.
+  """
+  transport_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Transport_Data!
+  ): Transport_KeyOutput! @fdc_generated(from: "Transport", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Trip` into the table, based on the primary key. Returns the key of the newly inserted `Trip`.
+  """
+  trip_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Trip_Data!
+  ): Trip_KeyOutput! @fdc_generated(from: "Trip", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `User` into the table, based on the primary key. Returns the key of the newly inserted `User`.
+  """
+  user_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `UserPrefernces` into the table, based on the primary key. Returns the key of the newly inserted `UserPrefernces`.
+  """
+  userPreference_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: UserPrefernces_Data!
+  ): UserPrefernces_KeyOutput! @fdc_generated(from: "UserPrefernces", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Allergy` objects into the table, based on the primary key. Returns the key of the newly inserted `Allergy`.
+  """
+  allergy_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Allergy_Data!]!
+  ): [Allergy_KeyOutput!]! @fdc_generated(from: "Allergy", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Product` objects into the table, based on the primary key. Returns the key of the newly inserted `Product`.
+  """
+  product_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Product_Data!]!
+  ): [Product_KeyOutput!]! @fdc_generated(from: "Product", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Tip` objects into the table, based on the primary key. Returns the key of the newly inserted `Tip`.
+  """
+  tip_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Tip_Data!]!
+  ): [Tip_KeyOutput!]! @fdc_generated(from: "Tip", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Transport` objects into the table, based on the primary key. Returns the key of the newly inserted `Transport`.
+  """
+  transport_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Transport_Data!]!
+  ): [Transport_KeyOutput!]! @fdc_generated(from: "Transport", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Trip` objects into the table, based on the primary key. Returns the key of the newly inserted `Trip`.
+  """
+  trip_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Trip_Data!]!
+  ): [Trip_KeyOutput!]! @fdc_generated(from: "Trip", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `User` objects into the table, based on the primary key. Returns the key of the newly inserted `User`.
+  """
+  user_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `UserPrefernces` objects into the table, based on the primary key. Returns the key of the newly inserted `UserPrefernces`.
+  """
+  userPreference_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [UserPrefernces_Data!]!
+  ): [UserPrefernces_KeyOutput!]! @fdc_generated(from: "UserPrefernces", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Allergy` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  allergy_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Allergy_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Allergy_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Allergy_Data!
+  ): Allergy_KeyOutput @fdc_generated(from: "Allergy", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Product` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  product_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Product_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Product_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Product_Data!
+  ): Product_KeyOutput @fdc_generated(from: "Product", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Tip` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  tip_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Tip_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Tip_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Tip_Data!
+  ): Tip_KeyOutput @fdc_generated(from: "Tip", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Transport` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  transport_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Transport_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Transport_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Transport_Data!
+  ): Transport_KeyOutput @fdc_generated(from: "Transport", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Trip` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  trip_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Trip_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Trip_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Trip_Data!
+  ): Trip_KeyOutput @fdc_generated(from: "Trip", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `User` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  user_update(
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: User_Data!
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `UserPrefernces` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  userPreference_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: UserPrefernces_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserPrefernces_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: UserPrefernces_Data!
+  ): UserPrefernces_KeyOutput @fdc_generated(from: "UserPrefernces", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Allergy` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  allergy_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Allergy_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Allergy_Data!
+  ): Int! @fdc_generated(from: "Allergy", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Product` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  product_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Product_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Product_Data!
+  ): Int! @fdc_generated(from: "Product", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Tip` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  tip_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Tip_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Tip_Data!
+  ): Int! @fdc_generated(from: "Tip", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Transport` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  transport_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Transport_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Transport_Data!
+  ): Int! @fdc_generated(from: "Transport", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Trip` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  trip_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Trip_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Trip_Data!
+  ): Int! @fdc_generated(from: "Trip", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `User` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  user_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: User_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: User_Data!
+  ): Int! @fdc_generated(from: "User", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `UserPrefernces` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  userPreference_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: UserPrefernces_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: UserPrefernces_Data!
+  ): Int! @fdc_generated(from: "UserPrefernces", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Allergy` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  allergy_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Allergy_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Allergy_FirstRow
+  ): Allergy_KeyOutput @fdc_generated(from: "Allergy", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Product` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  product_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Product_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Product_FirstRow
+  ): Product_KeyOutput @fdc_generated(from: "Product", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Tip` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  tip_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Tip_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Tip_FirstRow
+  ): Tip_KeyOutput @fdc_generated(from: "Tip", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Transport` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  transport_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Transport_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Transport_FirstRow
+  ): Transport_KeyOutput @fdc_generated(from: "Transport", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Trip` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  trip_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Trip_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Trip_FirstRow
+  ): Trip_KeyOutput @fdc_generated(from: "Trip", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `User` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  user_delete(
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `UserPrefernces` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  userPreference_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: UserPrefernces_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserPrefernces_FirstRow
+  ): UserPrefernces_KeyOutput @fdc_generated(from: "UserPrefernces", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Allergy` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  allergy_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Allergy_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Allergy", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Product` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  product_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Product_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Product", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Tip` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  tip_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Tip_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Tip", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Transport` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  transport_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Transport_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Transport", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Trip` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  trip_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Trip_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Trip", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `User` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  user_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: User_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "User", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `UserPrefernces` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  userPreference_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: UserPrefernces_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "UserPrefernces", purpose: DELETE_MULTIPLE)
+}

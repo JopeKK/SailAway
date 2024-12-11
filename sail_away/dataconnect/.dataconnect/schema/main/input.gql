@@ -1,0 +1,924 @@
+"""
+✨ `Allergy_KeyOutput` returns the primary key fields of table type `Allergy`.
+
+It has the same format as `Allergy_Key`, but is only used as mutation return value.
+"""
+scalar Allergy_KeyOutput
+"""
+✨ `Product_KeyOutput` returns the primary key fields of table type `Product`.
+
+It has the same format as `Product_Key`, but is only used as mutation return value.
+"""
+scalar Product_KeyOutput
+"""
+✨ `Tip_KeyOutput` returns the primary key fields of table type `Tip`.
+
+It has the same format as `Tip_Key`, but is only used as mutation return value.
+"""
+scalar Tip_KeyOutput
+"""
+✨ `Transport_KeyOutput` returns the primary key fields of table type `Transport`.
+
+It has the same format as `Transport_Key`, but is only used as mutation return value.
+"""
+scalar Transport_KeyOutput
+"""
+✨ `Trip_KeyOutput` returns the primary key fields of table type `Trip`.
+
+It has the same format as `Trip_Key`, but is only used as mutation return value.
+"""
+scalar Trip_KeyOutput
+"""
+✨ `User_KeyOutput` returns the primary key fields of table type `User`.
+
+It has the same format as `User_Key`, but is only used as mutation return value.
+"""
+scalar User_KeyOutput
+"""
+✨ `UserPrefernces_KeyOutput` returns the primary key fields of table type `UserPrefernces`.
+
+It has the same format as `UserPrefernces_Key`, but is only used as mutation return value.
+"""
+scalar UserPrefernces_KeyOutput
+"""
+✨ Generated data input type for table 'Allergy'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Allergy_Data {
+  """
+  ✨ Generated from Field `Allergy`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Allergy`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Allergy`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Allergy`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Allergy'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Allergy_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Allergy_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Allergy_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Allergy_Filter!]
+  """
+  ✨ Generated from Field `Allergy`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Allergy`.`name` of type `String!`
+  """
+  name: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'Allergy'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Allergy_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Allergy_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Allergy_Filter
+}
+"""
+✨ Generated key input type for table 'Allergy'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Allergy_Key {
+  """
+  ✨ Generated from Field `Allergy`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Allergy`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Allergy'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Allergy_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Allergy_Filter
+}
+"""
+✨ Generated order input type for table 'Allergy'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Allergy_Order {
+  """
+  ✨ Generated from Field `Allergy`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Allergy`.`name` of type `String!`
+  """
+  name: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Product'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Product_Data {
+  """
+  ✨ Generated from Field `Product`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Product`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Product`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Product`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+  """
+  ✨ Generated from Field `Product`.`storageType` of type `String!`
+  """
+  storageType: String
+  """
+  ✨ `_expr` server value variant of `storageType` (✨ Generated from Field `Product`.`storageType` of type `String!`)
+  """
+  storageType_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Product'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Product_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Product_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Product_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Product_Filter!]
+  """
+  ✨ Generated from Field `Product`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Product`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `Product`.`storageType` of type `String!`
+  """
+  storageType: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'Product'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Product_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Product_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Product_Filter
+}
+"""
+✨ Generated key input type for table 'Product'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Product_Key {
+  """
+  ✨ Generated from Field `Product`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Product`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Product'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Product_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Product_Filter
+}
+"""
+✨ Generated order input type for table 'Product'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Product_Order {
+  """
+  ✨ Generated from Field `Product`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Product`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `Product`.`storageType` of type `String!`
+  """
+  storageType: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Tip'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Tip_Data {
+  """
+  ✨ Generated from Field `Tip`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Tip`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Tip`.`description` of type `String!`
+  """
+  description: String
+  """
+  ✨ `_expr` server value variant of `description` (✨ Generated from Field `Tip`.`description` of type `String!`)
+  """
+  description_expr: String_Expr
+  """
+  ✨ Generated from Field `Tip`.`title` of type `String!`
+  """
+  title: String
+  """
+  ✨ `_expr` server value variant of `title` (✨ Generated from Field `Tip`.`title` of type `String!`)
+  """
+  title_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Tip'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Tip_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Tip_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Tip_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Tip_Filter!]
+  """
+  ✨ Generated from Field `Tip`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Tip`.`description` of type `String!`
+  """
+  description: String_Filter
+  """
+  ✨ Generated from Field `Tip`.`title` of type `String!`
+  """
+  title: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'Tip'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Tip_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Tip_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Tip_Filter
+}
+"""
+✨ Generated key input type for table 'Tip'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Tip_Key {
+  """
+  ✨ Generated from Field `Tip`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Tip`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Tip'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Tip_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Tip_Filter
+}
+"""
+✨ Generated order input type for table 'Tip'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Tip_Order {
+  """
+  ✨ Generated from Field `Tip`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Tip`.`description` of type `String!`
+  """
+  description: OrderDirection
+  """
+  ✨ Generated from Field `Tip`.`title` of type `String!`
+  """
+  title: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Transport'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Transport_Data {
+  """
+  ✨ Generated from Field `Transport`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Transport`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Transport`.`members` of type `[String]!`
+  """
+  members: [String!]
+  """
+  ✨ Generated from Field `Transport`.`tripId` of type `UUID!`
+  """
+  tripId: UUID
+  """
+  ✨ `_expr` server value variant of `tripId` (✨ Generated from Field `Transport`.`tripId` of type `UUID!`)
+  """
+  tripId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Transport`.`type` of type `String!`
+  """
+  type: String
+  """
+  ✨ `_expr` server value variant of `type` (✨ Generated from Field `Transport`.`type` of type `String!`)
+  """
+  type_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Transport'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Transport_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Transport_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Transport_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Transport_Filter!]
+  """
+  ✨ Generated from Field `Transport`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Transport`.`members` of type `[String]!`
+  """
+  members: String_ListFilter
+  """
+  ✨ Generated from Field `Transport`.`tripId` of type `UUID!`
+  """
+  tripId: UUID_Filter
+  """
+  ✨ Generated from Field `Transport`.`type` of type `String!`
+  """
+  type: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'Transport'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Transport_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Transport_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Transport_Filter
+}
+"""
+✨ Generated key input type for table 'Transport'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Transport_Key {
+  """
+  ✨ Generated from Field `Transport`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Transport`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Transport'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Transport_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Transport_Filter
+}
+"""
+✨ Generated order input type for table 'Transport'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Transport_Order {
+  """
+  ✨ Generated from Field `Transport`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Transport`.`tripId` of type `UUID!`
+  """
+  tripId: OrderDirection
+  """
+  ✨ Generated from Field `Transport`.`type` of type `String!`
+  """
+  type: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Trip'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Trip_Data {
+  """
+  ✨ Generated from Field `Trip`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Trip`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Trip`.`authorId` of type `String!`
+  """
+  authorId: String
+  """
+  ✨ `_expr` server value variant of `authorId` (✨ Generated from Field `Trip`.`authorId` of type `String!`)
+  """
+  authorId_expr: String_Expr
+  """
+  ✨ Generated from Field `Trip`.`inviteCode` of type `String!`
+  """
+  inviteCode: String
+  """
+  ✨ `_expr` server value variant of `inviteCode` (✨ Generated from Field `Trip`.`inviteCode` of type `String!`)
+  """
+  inviteCode_expr: String_Expr
+  """
+  ✨ Generated from Field `Trip`.`members` of type `[String]`
+  """
+  members: [String!]
+  """
+  ✨ Generated from Field `Trip`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Trip`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+  """
+  ✨ Generated from Field `Trip`.`startingData` of type `Date!`
+  """
+  startingData: Date
+  """
+  ✨ `_date` server value variant of `startingData` (✨ Generated from Field `Trip`.`startingData` of type `Date!`)
+  """
+  startingData_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `startingData` (✨ Generated from Field `Trip`.`startingData` of type `Date!`)
+  """
+  startingData_expr: Date_Expr
+  """
+  ✨ Generated from Field `Trip`.`tips` of type `Boolean!`
+  """
+  tips: Boolean
+  """
+  ✨ Generated from Field `Trip`.`transport` of type `Boolean!`
+  """
+  transport: Boolean
+}
+"""
+✨ Generated filter input type for table 'Trip'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Trip_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Trip_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Trip_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Trip_Filter!]
+  """
+  ✨ Generated from Field `Trip`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Trip`.`authorId` of type `String!`
+  """
+  authorId: String_Filter
+  """
+  ✨ Generated from Field `Trip`.`inviteCode` of type `String!`
+  """
+  inviteCode: String_Filter
+  """
+  ✨ Generated from Field `Trip`.`members` of type `[String]`
+  """
+  members: String_ListFilter
+  """
+  ✨ Generated from Field `Trip`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `Trip`.`startingData` of type `Date!`
+  """
+  startingData: Date_Filter
+  """
+  ✨ Generated from Field `Trip`.`tips` of type `Boolean!`
+  """
+  tips: Boolean_Filter
+  """
+  ✨ Generated from Field `Trip`.`transport` of type `Boolean!`
+  """
+  transport: Boolean_Filter
+}
+"""
+✨ Generated first-row input type for table 'Trip'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Trip_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Trip_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Trip_Filter
+}
+"""
+✨ Generated key input type for table 'Trip'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Trip_Key {
+  """
+  ✨ Generated from Field `Trip`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Trip`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Trip'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Trip_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Trip_Filter
+}
+"""
+✨ Generated order input type for table 'Trip'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Trip_Order {
+  """
+  ✨ Generated from Field `Trip`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Trip`.`authorId` of type `String!`
+  """
+  authorId: OrderDirection
+  """
+  ✨ Generated from Field `Trip`.`inviteCode` of type `String!`
+  """
+  inviteCode: OrderDirection
+  """
+  ✨ Generated from Field `Trip`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `Trip`.`startingData` of type `Date!`
+  """
+  startingData: OrderDirection
+  """
+  ✨ Generated from Field `Trip`.`tips` of type `Boolean!`
+  """
+  tips: OrderDirection
+  """
+  ✨ Generated from Field `Trip`.`transport` of type `Boolean!`
+  """
+  transport: OrderDirection
+}
+"""
+✨ Generated data input type for table 'User'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input User_Data {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `User`.`authId` of type `String!`
+  """
+  authId: String
+  """
+  ✨ `_expr` server value variant of `authId` (✨ Generated from Field `User`.`authId` of type `String!`)
+  """
+  authId_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `User`.`email` of type `String!`)
+  """
+  email_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `User`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'User'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input User_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [User_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: User_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [User_Filter!]
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `User`.`authId` of type `String!`
+  """
+  authId: String_Filter
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `User`.`name` of type `String!`
+  """
+  name: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'User'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input User_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [User_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: User_Filter
+}
+"""
+✨ Generated key input type for table 'User'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input User_Key {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `User`.`authId` of type `String!`
+  """
+  authId: String
+  """
+  ✨ `_expr` server value variant of `authId` (✨ Generated from Field `User`.`authId` of type `String!`)
+  """
+  authId_expr: String_Expr
+}
+"""
+✨ Generated list filter input type for table 'User'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input User_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: User_Filter
+}
+"""
+✨ Generated order input type for table 'User'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input User_Order {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `User`.`authId` of type `String!`
+  """
+  authId: OrderDirection
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `User`.`name` of type `String!`
+  """
+  name: OrderDirection
+}
+"""
+✨ Generated data input type for table 'UserPrefernces'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input UserPrefernces_Data {
+  """
+  ✨ Generated from Field `UserPrefernces`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserPrefernces`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `UserPrefernces`.`allergies` of type `[UUID]`
+  """
+  allergies: [UUID!]
+  """
+  ✨ Generated from Field `UserPrefernces`.`hatedProduct` of type `[UUID]`
+  """
+  hatedProduct: [UUID!]
+  """
+  ✨ Generated from Field `UserPrefernces`.`userId` of type `String`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `UserPrefernces`.`userId` of type `String`)
+  """
+  userId_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'UserPrefernces'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserPrefernces_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [UserPrefernces_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: UserPrefernces_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [UserPrefernces_Filter!]
+  """
+  ✨ Generated from Field `UserPrefernces`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `UserPrefernces`.`allergies` of type `[UUID]`
+  """
+  allergies: UUID_ListFilter
+  """
+  ✨ Generated from Field `UserPrefernces`.`hatedProduct` of type `[UUID]`
+  """
+  hatedProduct: UUID_ListFilter
+  """
+  ✨ Generated from Field `UserPrefernces`.`userId` of type `String`
+  """
+  userId: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'UserPrefernces'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input UserPrefernces_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [UserPrefernces_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: UserPrefernces_Filter
+}
+"""
+✨ Generated key input type for table 'UserPrefernces'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input UserPrefernces_Key {
+  """
+  ✨ Generated from Field `UserPrefernces`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserPrefernces`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'UserPrefernces'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input UserPrefernces_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: UserPrefernces_Filter
+}
+"""
+✨ Generated order input type for table 'UserPrefernces'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input UserPrefernces_Order {
+  """
+  ✨ Generated from Field `UserPrefernces`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `UserPrefernces`.`userId` of type `String`
+  """
+  userId: OrderDirection
+}

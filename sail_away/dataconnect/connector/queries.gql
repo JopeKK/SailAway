@@ -1,83 +1,194 @@
-# # Example queries for a simple movie app.
+query GetAllUsers {
+    users{
+        id,
+        authId,
+        name,
+        email,
+    }
+}
 
-# # @auth() directives control who can call each operation.
-# # Anyone should be able to list all movies, so the auth level is set to PUBLIC
-# query ListMovies @auth(level: PUBLIC) {
-#   movies {
-#     id
-#     title
-#     imageUrl
-#     genre
-#   }
-# }
+query GetAllTrips 
+@auth(level: USER)
+{ 
+    trips{
+        id,
+        name,
+        authorId,
+        tips,
+        transport,
+        startingData,
+        inviteCode,
+        members,
+    }
+}
 
-# # List all users, only admins should be able to list all users, so we use NO_ACCESS
-# query ListUsers @auth(level: NO_ACCESS) {
-#   users { id, username }
-# }
+query GetAllTips
+@auth(level: USER)
+{
+  tips{
+    id,
+    title,
+    description,
+  }
+}
 
-# # Logged in user can list all their reviews and movie titles associated with the review 
-# # Since the query requires the uid of the current authenticated user, the auth level is set to USER
-# query ListUserReviews @auth(level: USER) {
-#   user(key: {id_expr: "auth.uid"}) {
-#     id
-#     username
-#     # <field>_on_<foreign_key_field> makes it easy to grab info from another table
-#     # Here, we use it to grab all the reviews written by the user.
-#     reviews: reviews_on_user {
-#       id
-#       rating
-#       reviewDate
-#       reviewText
-#       movie {
-#         id
-#         title
-#       }
-#     }
-#   }
-# }
+query GetAllTransports
+@auth(level: USER)
+{
+    transports{
+        id,
+        tripId,
+        members,
+        type,
+    }
+}
 
-# # Get movie by id
-# query GetMovieById($id: UUID!) @auth(level: PUBLIC) {
-#   movie(id: $id) {
-#     id
-#     title
-#     imageUrl
-#     genre
-#     metadata: movieMetadata_on_movie {
-#       rating
-#       releaseYear
-#       description
-#     }
-#     reviews: reviews_on_movie {
-#       id
-#       reviewText
-#       reviewDate
-#       rating
-#       user {
-#         id
-#         username
-#       }
-#     }
-#   }
-# }
+query GetUsersFromTripWithTripId($id: UUID!)
+@auth(level: USER)
+{
+    UsersFromTrip: trips(where:{id: {eq:$id}}){
+        members
+    }
+}
 
-# # Search for movies, actors, and reviews
-# query SearchMovie(
-#   $titleInput: String
-#   $genre: String
-# ) @auth(level: PUBLIC) {
-#   movies(
-#     where: {
-#       _and: [
-#         { genre: { eq: $genre } }
-#         { title: { contains: $titleInput } }
-#       ]
-#     }
-#   ) {
-#     id
-#     title
-#     genre
-#     imageUrl
-#   }
-# }
+query GetUsersFromMembersList($members: [String!]!)
+@auth(level: USER)
+{
+    UsersFromMembers: users(where: {authId: {in: $members}}){
+        authId,
+        name,
+    }
+}
+
+query GetTransportByTripId($tripId: UUID!)
+@auth(level: USER)
+{
+    TransportByTripId: transports(where: {tripId: {eq: $tripId}}){
+        id,
+        tripId,
+        members,
+        type,
+    }
+}
+query getTransportById($transportId: UUID!)
+@auth(level: USER)
+{
+    TransportByTripId: transports(where: {id: {eq: $transportId}}){
+        id,
+        tripId,
+        members,
+        type,
+    }
+}
+
+
+
+query GetTripById($id: UUID!)
+ @auth(level: USER)
+{
+    TripFromId: trips(
+        where: {id:{eq:$id}}
+    ){
+        id,
+        name,
+        authorId,
+        tips,
+        transport,
+        startingData,
+        inviteCode,
+        members,
+    }
+
+}
+
+query GetTripWithInviteCode($code: String!)
+ @auth(level: USER)
+ {
+    TripFromCode: trips(
+        where: {inviteCode: {eq: $code}}
+    ){
+        id,
+        name,
+        authorId,
+        tips,
+        transport,
+        startingData,
+        inviteCode,
+        members,
+    }
+}
+
+query GetUserFromAuthId($userAuthId: String!) 
+@auth(level: PUBLIC)
+{
+    UserFromAuthId: users(
+        where: {authId: {eq: $userAuthId}}
+    ){
+        id,
+        authId,
+        name,
+        email
+    }
+}
+
+
+
+query GetAllProducts 
+@auth(level: PUBLIC)
+{
+    products{
+        id,
+        name,
+        storageType,
+    }
+}
+
+query GetAllAllergies 
+@auth(level: PUBLIC)
+{
+    allergies{
+        id,
+        name,
+    }
+}
+
+query GetAllUsersPreferences 
+@auth(level: PUBLIC)
+{
+    userPreferences{
+        id,
+        userId,
+        hatedProduct,
+        allergies
+    }
+}
+
+query GetUserPreferences($userAuthId: String!) 
+@auth(level: USER)
+{
+    PreferenceFromAuthId: userPreferences(where: {userId:{eq: $userAuthId}}){
+        id,
+        userId,
+        hatedProduct,
+        allergies
+    }
+}
+
+query GetAllAllergiesFromIds($IdList: [UUID!]!)
+@auth(level:USER)
+{
+    AllergiesList: allergies(where:{id:{in: $IdList}}){
+        id,
+        name,
+    }
+}
+
+query GetAllProductsFromIds($IdList: [UUID!]!)
+@auth(level: USER)
+{
+    ProductList: products(where:{id:{in: $IdList}}){
+        id,
+        name,
+        storageType,
+    }
+}

@@ -171,7 +171,7 @@ class _LogInPageState extends State<LogInPage> {
                   children: [
                     GestureDetector(
                       child: const Text('Odzyskaj hasło'),
-                      onTap: () => recoveryPassoword(),
+                      onTap: () => recoveryPassoword(context,email.trim()),
                     ),
                     SizedBox(width: screenWidth * 0.1),
                   ],
@@ -225,9 +225,11 @@ class _LogInPageState extends State<LogInPage> {
   }
 }
 
-recoveryPassoword() {
-  //co pop up podaj mail itd
+recoveryPassoword(BuildContext context, String trim) {
+   final logInCubit = BlocProvider.of<LogInCubit>(context);
+  logInCubit.recoverPassword(trim);
 }
+
 
 logIn(BuildContext context, String email, String password) {
   final logInCubit = BlocProvider.of<LogInCubit>(context);

@@ -247,7 +247,7 @@ class _RegisterUserInfoPageState extends State<RegisterUserInfoPage> {
 
 moveToSecondPartOfRegistration(BuildContext context, name, email, password) {
   final logInCubit = BlocProvider.of<LogInCubit>(context);
-  logInCubit.registerUser(email, password);
+  logInCubit.registerUser(name, email, password);
 }
 
 moveToLogIn(BuildContext context) {

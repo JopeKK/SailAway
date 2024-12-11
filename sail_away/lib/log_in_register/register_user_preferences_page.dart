@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sail_away/common/colors.dart';
+import 'package:sail_away/cubit/log_in_cubit.dart';
+import 'package:sail_away/data/model/allergy.dart';
+import 'package:sail_away/data/model/product.dart';
 
 class RegisterUserPreferencesPage extends StatefulWidget {
-  const RegisterUserPreferencesPage({super.key});
+  final List<ProductModel> products;
+  final List<AllergyModel> allergies;
+
+  const RegisterUserPreferencesPage({
+    super.key,
+    required this.products,
+    required this.allergies,
+  });
 
   @override
   State<RegisterUserPreferencesPage> createState() =>
@@ -11,29 +22,8 @@ class RegisterUserPreferencesPage extends StatefulWidget {
 
 class _RegisterUserPreferencesPageState
     extends State<RegisterUserPreferencesPage> {
-  List<String> alergie = [
-    "Alergia 1",
-    "Alergia 2",
-    "Alergia 3",
-    "Alergia 4",
-    "Alergia 5",
-    "Alergia 6",
-    "Alergia 7",
-    "Alergia 8",
-    "Alergia 9",
-  ];
-  List<String> czegoNieLube = [
-    "Product 4",
-    "Product 5",
-    "Product 6",
-  ];
-  List<String> wybraneAlergie = [];
-  List<String> wybraneProdukty = [];
-
-  void submitSelectedProducts() {
-    print("Wybrane alergie: $wybraneAlergie");
-    print("Wybrane produkty: $wybraneProdukty");
-  }
+  List<AllergyModel> wybraneAlergie = [];
+  List<ProductModel> wybraneProdukty = [];
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +48,9 @@ class _RegisterUserPreferencesPageState
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: screenHeight * 0.05),
-            buildDropdownWithCheckboxes(
-              title: "Zaznacz je tutaj",
-              items: alergie,
+            buildDropdownWithCheckboxesAllergies(
+              title: "Zaznacz to tutaj",
+              items: widget.allergies,
               selectedItems: wybraneAlergie,
               onSelectionChanged: (selected) {
                 setState(() {
@@ -75,9 +65,9 @@ class _RegisterUserPreferencesPageState
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: screenHeight * 0.05),
-            buildDropdownWithCheckboxes(
-              title: "Zaznacz to tutaj",
-              items: czegoNieLube,
+            buildDropdownWithCheckboxesProducts(
+              title: "Zaznacz je tutaj",
+              items: widget.products,
               selectedItems: wybraneProdukty,
               onSelectionChanged: (selected) {
                 setState(() {
@@ -92,7 +82,8 @@ class _RegisterUserPreferencesPageState
               width: screenWidth * 0.8,
               height: screenHeight * 0.06,
               child: ElevatedButton(
-                onPressed: submitSelectedProducts,
+                onPressed: () =>
+                    registerToTheApp(context, wybraneProdukty, wybraneAlergie),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.strongAccentColor,
                 ),
@@ -108,11 +99,11 @@ class _RegisterUserPreferencesPageState
     );
   }
 
-  Widget buildDropdownWithCheckboxes({
+  Widget buildDropdownWithCheckboxesProducts({
     required String title,
-    required List<String> items,
-    required List<String> selectedItems,
-    required Function(List<String>) onSelectionChanged,
+    required List<ProductModel> items,
+    required List<ProductModel> selectedItems,
+    required Function(List<ProductModel>) onSelectionChanged,
     required double widgetHeight,
   }) {
     return ExpansionTile(
@@ -132,7 +123,7 @@ class _RegisterUserPreferencesPageState
             child: Column(
               children: items.map((item) {
                 return CheckboxListTile(
-                  title: Text(item),
+                  title: Text(item.name),
                   value: selectedItems.contains(item),
                   onChanged: (bool? value) {
                     setState(() {
@@ -152,4 +143,55 @@ class _RegisterUserPreferencesPageState
       ],
     );
   }
+
+  Widget buildDropdownWithCheckboxesAllergies({
+    required String title,
+    required List<AllergyModel> items,
+    required List<AllergyModel> selectedItems,
+    required Function(List<AllergyModel>) onSelectionChanged,
+    required double widgetHeight,
+  }) {
+    return ExpansionTile(
+      title: Text(title),
+      children: [
+        Container(
+          height: widgetHeight,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black26,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: items.map((item) {
+                return CheckboxListTile(
+                  title: Text(item.name),
+                  value: selectedItems.contains(item),
+                  onChanged: (bool? value) {
+                    setState(() {
+                      if (value!) {
+                        selectedItems.add(item);
+                      } else {
+                        selectedItems.remove(item);
+                      }
+                      onSelectionChanged(selectedItems);
+                    });
+                  },
+                );
+              }).toList(),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+registerToTheApp(BuildContext context, List<ProductModel> wybraneAlergie,
+    List<AllergyModel> wybraneProdukty) {
+  final logInCubit = BlocProvider.of<LogInCubit>(context);
+  logInCubit.registerUserPreferences(wybraneProdukty, wybraneAlergie);
 }

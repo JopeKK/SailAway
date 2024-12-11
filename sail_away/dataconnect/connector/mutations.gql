@@ -1,50 +1,100 @@
-# # Example mutations for a simple movie app
+mutation CreateUser($authId: String!, $name: String!,$email: String!) 
+@auth(level: PUBLIC){
+    user_insert(data: {authId: $authId,name: $name,email: $email})
+}
 
-# # Create a movie based on user input
-# mutation CreateMovie(
-#   $title: String!
-#   $genre: String!
-#   $imageUrl: String!
-# ) @auth(level: USER_EMAIL_VERIFIED) {
-#   movie_insert(
-#     data: {
-#       title: $title
-#       genre: $genre
-#       imageUrl: $imageUrl
-#     }
-#   )
-# }
+mutation changeTripMember($newMembers: [String!]!,$id: UUID!)
+@auth(level: USER){
+  trip_update(id: $id ,data: {members:$newMembers})
+}
 
-# # Upsert (update or insert) a user's username based on their auth.uid
-# mutation UpsertUser($username: String!) @auth(level: USER) {
-#   user_upsert(
-#     data: {
-#       id_expr: "auth.uid"
-#       username: $username
-#     }
-#   )
-# }
+mutation addTransport($members: [String!]!,$tripId: UUID!,$type: String!)
+@auth(level: USER){
+  transport_insert(
+    data: {members: $members, tripId: $tripId, type: $type}
+  )
+}
 
-# # Add a review for a movie
-# mutation AddReview(
-#   $movieId: UUID!
-#   $rating: Int!
-#   $reviewText: String!
-# ) @auth(level: USER) {
-#   review_upsert(
-#     data: {
-#       userId_expr: "auth.uid"
-#       movieId: $movieId
-#       rating: $rating
-#       reviewText: $reviewText
-#       # reviewDate defaults to today in the schema. No need to set it manually.
-#     }
-#   )
-# }
+mutation changeTransportMember($members: [String!]!,$transportId: UUID!)
+@auth(level: USER){
+  transport_update(
+    id: $transportId,data: {members:$members}
+    )
+}
 
-# # Logged in user can delete their review for a movie
-# mutation DeleteReview(
-#   $movieId: UUID!
-# ) @auth(level: USER) {
-#   review_delete(key: { userId_expr: "auth.uid", movieId: $movieId })
-# }
+mutation removeTransportById($transportId: UUID!)
+@auth(level: USER){
+  transport_delete(id: $transportId)
+}
+
+mutation removeTripById($id: UUID!)
+@auth(level: USER){
+  trip_delete(id: $id)
+}
+
+mutation RemoveAllTrips
+@auth(level: PUBLIC){
+    trip_deleteMany(all: true)
+}
+
+mutation CreateTrip($authorId:String!,$name:String!,$tips:Boolean!,$transport:Boolean!,$startingData:Date!,$inviteCode:String!,$members:[String!]!)
+@auth(level:PUBLIC){
+trip_insert(
+    data: {
+    authorId: $authorId, 
+    name: $name,
+    inviteCode: $inviteCode, 
+    members: $members, 
+    startingData: $startingData, 
+    tips: $tips, 
+    transport: $transport
+    }
+  )
+}
+
+mutation AddUserPreferences($userId: String!, $hatedProduct: [UUID!]!, $allergies: [UUID!]! ) 
+@auth(level:PUBLIC){
+  userPreference_insert(
+    data: {allergies: $allergies, hatedProduct: $hatedProduct, userId: $userId}
+  )
+}
+
+
+mutation BasicTipsPack{
+  tip_insertMany(
+    data: [
+      {id: "11111111222233334444555555555535", description: "Test1", title: "Test 1"}
+      {id: "11111111222233334444555555555525", description: "Test2", title: "Test 2"}
+      {id: "11111111222233334444555555555515", description: "Test3", title: "Test 3"}
+      {id: "11111111222233334444555555555565", description: "Test4", title: "Test 4"} 
+    ]
+  )
+}
+mutation BasicProductPack @auth(level:PUBLIC){
+    product_insertMany(data: [
+        {id: "12111111222233334444555555555555", name: "Mleko krowie", storageType: "l"}
+        {id: "13111111222233334444555555555555", name: "Jajka", storageType: "szt"}
+        {id: "14111111222233334444555555555555", name: "Orzechy Wloskie", storageType: "kg"}
+        {id: "15111111222233334444555555555555", name: "Ryz", storageType: "kg"}
+        {id: "16111111222233334444555555555555", name: "Ser zolty", storageType: "kg"}
+        {id: "17111111222233334444555555555555", name: "Losos", storageType: "kg"}
+        {id: "18111111222233334444555555555555", name: "Czekolada mleczna", storageType: "szt"}
+        {id: "19111111222233334444555555555555", name: "Jablka", storageType: "kg"}
+        {id: "10111111222233334444555555555555", name: "Woda niegazowana", storageType: "l"}
+    ])
+}
+
+mutation BasicAllergyPack @auth(level: PUBLIC){
+  allergy_insertMany(data: [
+    {id: "21111111222233334444555555555555", name: "Peanut Allergy"}
+    {id: "22111111222233334444555555555555", name: "Shellfish Allergy"}
+    {id: "23111111222233334444555555555555", name: "Dairy Allergy"}
+    {id: "24111111222233334444555555555555", name: "Egg Allergy"}
+    {id: "25111111222233334444555555555555", name: "Wheat Allergy"}
+    {id: "26111111222233334444555555555555", name: "Soy Allergy"}
+    {id: "27111111222233334444555555555555", name: "Fish Allergy"}
+    {id: "28111111222233334444555555555555", name: "Tree Nut Allergy"}
+    {id: "29111111222233334444555555555555", name: "Sesame Allergy"}
+    {id: "30111111222233334444555555555555", name: "Corn Allergy"}
+  ])
+}
