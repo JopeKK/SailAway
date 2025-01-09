@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-     //home: const MoveToMainPage(),
       home: BlocProvider(
         create: (context) => LogInCubit(DataRepository()),
         child: const LogInLogic(),

@@ -20,6 +20,8 @@ part 'create_trip.dart';
 
 part 'add_user_preferences.dart';
 
+part 'change_user_preferences.dart';
+
 part 'basic_tips_pack.dart';
 
 part 'basic_product_pack.dart';
@@ -111,6 +113,11 @@ class SailAwayApiConnector {
   
   AddUserPreferencesVariablesBuilder addUserPreferences ({required String userId,required List<String> hatedProduct,required List<String> allergies,}) {
     return AddUserPreferencesVariablesBuilder(dataConnect, userId: userId,hatedProduct: hatedProduct,allergies: allergies,);
+  }
+  
+  
+  ChangeUserPreferencesVariablesBuilder changeUserPreferences ({required String userId,required List<String> hatedProduct,required List<String> allergies,}) {
+    return ChangeUserPreferencesVariablesBuilder(dataConnect, userId: userId,hatedProduct: hatedProduct,allergies: allergies,);
   }
   
   

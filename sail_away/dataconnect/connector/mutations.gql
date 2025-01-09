@@ -60,6 +60,14 @@ mutation AddUserPreferences($userId: String!, $hatedProduct: [UUID!]!, $allergie
 }
 
 
+mutation changeUserPreferences($userId: UUID!, $hatedProduct: [UUID!]!, $allergies: [UUID!]! )
+@auth(level: USER){
+  userPreference_update(
+    id: $userId,
+    data: {allergies: $allergies, hatedProduct: $hatedProduct}
+    )
+}
+
 mutation BasicTipsPack{
   tip_insertMany(
     data: [

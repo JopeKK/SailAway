@@ -9,8 +9,6 @@ import 'package:sail_away/data/model/trip.dart';
 import 'package:sail_away/data/model/user.dart';
 import 'package:sail_away/generated/sail_away_api.dart';
 
-const String pokeDBREF = 'FavoritePokeList';
-
 abstract class Repo {
   Future<void> saveUserId(String userId);
   Future<String> loadUserId();
@@ -32,6 +30,9 @@ abstract class Repo {
       String region, DateTime date, bool useAdvice, bool useTransport);
   Future<void> creatUserInDB(String id, String name, String email);
   Future<void> creatUserPrefernces(
+      String userId, List<String> products, List<String> allergies);
+
+  Future<void> changeUserPreferences(
       String userId, List<String> products, List<String> allergies);
 
   Future<TransportModel> getTransportById(String id);
@@ -113,6 +114,15 @@ class DataRepository implements Repo {
   @override
   Future<void> creatUserInDB(var id, String name, String email) async {
     await dbApi.createUser(authId: id, name: name, email: email).execute();
+  }
+
+  @override
+  Future<void> changeUserPreferences(
+      String userId, List<String> products, List<String> allergies) async {
+    await dbApi
+        .changeUserPreferences(
+            userId: userId, hatedProduct: products, allergies: allergies)
+        .execute();
   }
 
   @override

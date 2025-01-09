@@ -39,6 +39,15 @@ class MainCubit extends Cubit<MainState> {
     emit(MoveToProfilePage(user.name, user.email, userProducts, userAllergies));
   }
 
+
+  //TODO add remove alleriges and remove hproduct also add this and that and better view for them
+
+  //no i jak to teraz zrobic lista zakupow id tripu no i teraz co id produktu czy hate czy alergia i kto jedno kto drugie jako lista
+  //i wtedy jak jedno lub drugie to info kto to ma i inny kolor kafelka ilosc jeszcze bo rodzaj przechowywania jest w produkcie teraz jakies
+  //fajne zapytanie trzeba dodac moze checkbox co juz kupiono opcja save na dole napewno latwy zapis ale mozna pomyslec o poprostu dodaj i wtedy
+  //zapis no i usun krzyzyk na koncu kto moze chyba wszyscy no i edit do ilosci trzeba zrobic wartosc pokazywana to ta co jest ale mozna edit
+  //i na submit to dodajemy do bazy wiec ilosc w produkcie
+
   Future<void> signOut() async {
     FirebaseAuth.instance.signOut();
     emit(UserSignedOut());
